@@ -1,0 +1,2 @@
+DEPENDS += "cjson"
+LDFLAGS += "-lcjson"
