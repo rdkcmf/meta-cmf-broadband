@@ -6,6 +6,8 @@ SRC_URI += "file://dhcpswitch.sh"
 
 SRC_URI  += " ${@bb.utils.contains('DISTRO_FEATURES', 'device_gateway_association', 'file://Device_Gateway_Association.patch;apply=no', '', d)}"
 
+DEPENDS += " nanomsg"
+
 #RDKBDEV-83 -Patch code based on distro
 do_utopia_patches() {
 if [ "${@bb.utils.contains("DISTRO_FEATURES", "device_gateway_association", "yes", "no", d)}" = "yes" ]; then    
