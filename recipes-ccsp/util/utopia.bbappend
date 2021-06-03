@@ -20,3 +20,8 @@ fi
 }
 addtask utopia_patches after do_unpack before do_compile
 
+# rdkgponmanager requires rpc_client.h
+do_install_append () {
+    install -d ${D}${includedir}/rpc-cli
+    install -m 644 ${S}/source/util/rpc/client/rpc_client.h ${D}${includedir}/rpc-cli
+}
