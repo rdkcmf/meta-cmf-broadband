@@ -25,7 +25,7 @@ DEPENDS_append_dunfell = " nettle libgpg-error libgcrypt unzip-native coreutils-
 require recipes-ccsp/ccsp/ccsp_common.inc
 
 # use CMake for building, should perform "make all install"
-inherit cmake systemd pythonnative pkgconfig
+inherit cmake systemd pythonnative pkgconfig coverity
 
 CFLAGS_append = " ${@bb.utils.contains('DISTRO_FEATURES', 'telemetry2_0', '-DENABLE_FEATURE_TELEMETRY2_0', '', d)}"
 LDFLAGS_append = " ${@bb.utils.contains('DISTRO_FEATURES', 'telemetry2_0', ' -ltelemetry_msgsender ', '', d)}"
