@@ -795,7 +795,7 @@ index 56de958..b2d6c27 100644
 +                LOGW("%s: Failed to set SSID credentials", ssid_ifname);
 +            }
 +
-+            free(sta);
++            free(staNetworks);
 +        }
 +        else
 +        {
