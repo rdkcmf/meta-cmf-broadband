@@ -8,6 +8,8 @@ SRC_URI  += " ${@bb.utils.contains('DISTRO_FEATURES', 'device_gateway_associatio
 
 DEPENDS += " nanomsg"
 
+CFLAGS_append = " ${@bb.utils.contains('DISTRO_FEATURES', 'rdkb_wan_manager', '-D_WAN_MANAGER_ENABLED_', '', d)}"
+
 #RDKBDEV-83 -Patch code based on distro
 do_utopia_patches() {
 if [ "${@bb.utils.contains("DISTRO_FEATURES", "device_gateway_association", "yes", "no", d)}" = "yes" ]; then    
