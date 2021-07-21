@@ -21,9 +21,3 @@ if [ "${@bb.utils.contains("DISTRO_FEATURES", "device_gateway_association", "yes
 fi
 }
 addtask utopia_patches after do_unpack before do_compile
-
-# rdkgponmanager requires rpc_client.h
-do_install_append () {
-    install -d ${D}${includedir}/rpc-cli
-    touch ${D}${includedir}/rpc-cli/rpc_client.h
-}
