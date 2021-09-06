@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/ccsp-webui-bci:"
 SRC_URI += "file://logo_rdk.png"
 
 # we need to patch to code for RPi camera
