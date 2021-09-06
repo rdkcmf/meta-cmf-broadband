@@ -1,7 +1,7 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/ccsp-webui-bci:"
 SRC_URI += "file://logo_rdk.png"
 
-# we need to patch to code for RPi camera
+# we need to patch to code for RPi webui_bci
 do_webui_bci_patches() {
     cd ${S}/../..
     if [ ! -e patch_applied ]; then
