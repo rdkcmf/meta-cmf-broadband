@@ -13,7 +13,7 @@ S = "${WORKDIR}/git"
 inherit autotools
 
 do_rpi_fix () {
-	mv ${S}/LICENSE.txt ${S}/LICENSE
+	cp ${S}/LICENSE.txt ${S}/LICENSE
         cp ${WORKDIR}/Makefile   ${S}/
 }
 addtask rpi_fix after do_unpack before do_configure
@@ -34,3 +34,5 @@ do_install () {
 }
 
 FILES_${PN} += "${libdir}/*"
+
+INSANE_SKIP_${PN} = "ldflags"

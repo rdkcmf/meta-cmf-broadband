@@ -87,3 +87,4 @@ FILES_${PN}-dbg += " \
     ${ZILKER_INSTALL_PREFIX}/lib/.debug/*.so* \
     "
 
+INSANE_SKIP_${PN} = "ldflags already-stripped"
