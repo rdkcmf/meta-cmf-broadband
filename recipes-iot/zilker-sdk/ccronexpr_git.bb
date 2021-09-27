@@ -18,6 +18,8 @@ do_rpi_fix () {
 }
 addtask rpi_fix after do_unpack before do_configure
 
+CFLAGS_append_aarch64 = " -fPIC"
+
 do_compile () {
     oe_runmake -C ${S}/ -f Makefile clean
     oe_runmake -C ${S}/ -f Makefile library
