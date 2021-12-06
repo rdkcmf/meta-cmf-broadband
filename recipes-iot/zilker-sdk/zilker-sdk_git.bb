@@ -21,7 +21,7 @@ inherit cmake systemd pythonnative pkgconfig coverity
 
 CFLAGS_append = " ${@bb.utils.contains('DISTRO_FEATURES', 'telemetry2_0', '-DENABLE_FEATURE_TELEMETRY2_0', '', d)}"
 LDFLAGS_append = " ${@bb.utils.contains('DISTRO_FEATURES', 'telemetry2_0', ' -ltelemetry_msgsender ', '', d)}"
-LDFLAGS_append = " -lccronexpr"
+LDFLAGS_append = " -lccronexprd"
 
 # add variables to pass into CMake.  the OE_SYSROOT passes in the effective 'SYSROOT'
 # so we can append the proper include/lib directory paths for this environment
