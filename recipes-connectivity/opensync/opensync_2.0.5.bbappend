@@ -12,6 +12,7 @@ CORE_URI += "file://lan-port-fix.patch"
 PLATFORM_URI = "git://git@github.com/plume-design/opensync-platform-rdk.git;protocol=${CMF_GIT_PROTOCOL};branch=osync_2.0.5;name=platform;destsuffix=git/platform/rdk"
 PLATFORM_URI += "file://use_stats2.patch;patchdir=${WORKDIR}/git/platform/rdk"
 PLATFORM_URI += "file://rdk-vif-extender.patch;patchdir=${WORKDIR}/git/platform/rdk"
+PLATFORM_URI += "file://2062-Fix-RDK-log-build-failure.patch;patchdir=${WORKDIR}/git/platform/rdk"
 
 DEPENDS_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'extender', 'mesh-agent', '', d)}"
 DEPENDS_remove = "hal-wifi"
