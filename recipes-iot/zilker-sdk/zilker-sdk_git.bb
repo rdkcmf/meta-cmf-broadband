@@ -48,6 +48,7 @@ do_configure_prepend () {
     echo "set(OE_INSTALL_PREFIX \"/opt/zilker\" CACHE INTERNAL \"\")" >> ${S}/buildTools/cmake/products/pi.cmake
     #fix compilation errors
     sed -i "/littlesheens/{N;s/\n.*//;}" ${S}/source/services/automation/core/CMakeLists.txt
+    sed -i "s/LIBS \${SERVICE_LIBS}/LIBS \${SERVICE_LIBS} \"\-lccronexprd\"/g" ${S}/source/services/automation/core/CMakeLists.txt
     touch ${WORKDIR}/Zilker_configure_compilation_errors_fixed
     fi
     ln -fs ${S}/buildTools/cmake/products/pi.cmake ${WORKDIR}/site-file.cmake
