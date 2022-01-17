@@ -38,7 +38,7 @@ do_configure_prepend () {
     export PATH=$PATH:/usr/bin
     gradle clean
     cd -
-    if [ ! -f ${WORKDIR}/Zilker_configure_compilation_errors_fixed ]; then
+    if [ ! -f ${S}/Zilker_configure_compilation_errors_fixed ]; then
     sed -i "/set \-x/a export PATH=\$PATH:/usr/bin" ${S}/tools/ipcGenerator/ipcGenerator.sh
     sed -i "s/ON DEPENDS/OFF DEPENDS/g" ${S}/buildTools/cmake/capabilities.cmake
     sed -i "s/set(ZILKER_BUILD_3RDPARTY ON CACHE INTERNAL \"\")/set(ZILKER_BUILD_3RDPARTY OFF CACHE INTERNAL \"\")/g" ${S}/buildTools/cmake/products/pi.cmake
@@ -49,7 +49,7 @@ do_configure_prepend () {
     #fix compilation errors
     sed -i "/littlesheens/{N;s/\n.*//;}" ${S}/source/services/automation/core/CMakeLists.txt
     sed -i "s/LIBS \${SERVICE_LIBS}/LIBS \${SERVICE_LIBS} \"\-lccronexprd\"/g" ${S}/source/services/automation/core/CMakeLists.txt
-    touch ${WORKDIR}/Zilker_configure_compilation_errors_fixed
+    touch ${S}/Zilker_configure_compilation_errors_fixed
     fi
     ln -fs ${S}/buildTools/cmake/products/pi.cmake ${WORKDIR}/site-file.cmake
     (python ${STAGING_BINDIR_NATIVE}/dm_pack_code_gen.py ${S}/source/services/rdkIntegration/config/XHFW.xml ${S}/source/services/rdkIntegration/src/XHFW_Ssp/dm_pack_datamodel.c)
