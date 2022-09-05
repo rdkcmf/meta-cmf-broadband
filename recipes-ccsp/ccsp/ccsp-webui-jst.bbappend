@@ -8,6 +8,9 @@ SRC_URI += "${CMF_GIT_ROOT}/rdkb/devices/rdkbemu/rdkbemu_xb3;protocol=${CMF_GIT_
 
 SRC_URI += "file://logo_rdk.png"
 
+#REFPLTB-1802
+SRC_URI += "file://webgui_config.sh"
+
 do_install_append () {
        #For RDKM Logo
        install -d ${D}/usr/www2/cmn/syndication/img
@@ -24,6 +27,8 @@ do_install_append () {
        install -m 644 ${WORKDIR}/logo_rdk.png ${D}/usr/www2/cmn/syndication/img/captiveportal_arris_logo.png
        install -m 644 ${WORKDIR}/logo_rdk.png ${D}/usr/www2/cmn/syndication/img/logo_arris.png
        install -m 644 ${WORKDIR}/logo_rdk.png ${D}/usr/www2/cmn/syndication/img/logo-generic.png
+
+       install -m 755 ${WORKDIR}/webgui_config.sh ${D}/${sysconfdir}/webgui_config.sh
 }
 
 FILES_${PN} += "/usr/www2/cmn/syndication/img/* \
